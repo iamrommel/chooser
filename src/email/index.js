@@ -28,7 +28,6 @@ export const Email = () => {
         const origin = get(window, 'location.origin')
         const uri = `${origin}/?${params}`
 
-        console.log(uri,customerLifetimeValue, "customerLifetimeValue")
 
         try {
             const sendMailUrl = '/.netlify/functions/sendmail'

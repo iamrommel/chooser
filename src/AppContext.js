@@ -2,6 +2,7 @@ import React, { createContext, useContext as useContextCore, useEffect, useState
 import { BusinessModelOptions } from './common/BusinessModelOptions'
 import { ComputeFactory } from './common/compute/ComputeFactory'
 import { useUriQuery } from './common/useUriQuery'
+import numerals from 'numeraljs'
 
 const context = createContext()
 const CoreProvider = context.Provider
@@ -11,10 +12,10 @@ export const AppContextProvider = ({ children }) => {
 
     const params = useUriQuery()
     //get the initial value from the url or from static value when not defined
-    const initBusinessModel = params.get('bm') || BusinessModelOptions.consumer.value
-    const initCustomerLifetimeValue = params.get('clv') || 200
-    const initMonthlyVisitor = params.get('mv') || 10000
-    const initConversionRate = params.get('cr') || 0.022
+    const initBusinessModel = numerals(params.get('bm')).value() || BusinessModelOptions.consumer.value
+    const initCustomerLifetimeValue = numerals(params.get('clv')).value() || 200
+    const initMonthlyVisitor = numerals(params.get('mv')).value() || 10000
+    const initConversionRate = numerals(params.get('cr')).value() || 0.022
 
 
     const [customerLifetimeValue, setCustomerLifetimeValue] = useState(initCustomerLifetimeValue)
