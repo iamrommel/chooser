@@ -1,0 +1,40 @@
+{
+  "name": "chooser",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/runtime": "^7.7.2",
+    "cross-fetch": "^3.0.4",
+    "lodash.get": "^4.4.2",
+    "mailgun-js": "^0.22.0",
+    "nouislider-react": "^3.3.5",
+    "numeraljs": "^1.5.6",
+    "react": "^16.11.0",
+    "react-bootstrap": "^0.32.1",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "dev": "AWS_LAMBDA_JS_RUNTIME=nodejs10.x netlify dev"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
