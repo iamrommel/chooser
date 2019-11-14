@@ -12,10 +12,13 @@ export const AppContextProvider = ({ children }) => {
 
     const params = useUriQuery()
     //get the initial value from the url or from static value when not defined
-    const initBusinessModel = numerals(params.get('bm')).value() || BusinessModelOptions.consumer.value
+    const initBusinessModel = params.get('bm') || BusinessModelOptions.consumer.value
     const initCustomerLifetimeValue = numerals(params.get('clv')).value() || 200
     const initMonthlyVisitor = numerals(params.get('mv')).value() || 10000
-    const initConversionRate = numerals(params.get('cr')).value() || 0.022
+    //because the minimum value can be zero so it should accept zero value
+    //fallback to default only when null or undefined
+    let initConversionRate = numerals(params.get('cr')).value()
+    initConversionRate = initConversionRate === null || initConversionRate === undefined ? 0.022 : initConversionRate
 
 
     const [customerLifetimeValue, setCustomerLifetimeValue] = useState(initCustomerLifetimeValue)
