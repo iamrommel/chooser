@@ -6,16 +6,16 @@ import get from 'lodash.get'
 export const OptionDetails = () => {
 
     const { computeResult } = useAppContext()
-    const winnerName = get(computeResult, 'winner.name')
-    const loserName = get(computeResult, 'loser.name')
+    const leftName = get(computeResult, 'left.name')
+    const rightName = get(computeResult, 'right.name')
 
     return (
         <section id="testimonials" className="services">
             <div>
-                <Details {...computeResult.winner} name={<>Details for <b>{winnerName} </b> </>}/>
+                <Details {...computeResult.left} name={<>Details for <b>{leftName} </b> </>}/>
             </div>
             <div className="gray-section">
-                <Details {...computeResult.loser} name={<>Details for <b>{loserName} </b> </>}/>
+                <Details {...computeResult.right} name={<>Details for <b>{rightName} </b> </>}/>
             </div>
         </section>
 
