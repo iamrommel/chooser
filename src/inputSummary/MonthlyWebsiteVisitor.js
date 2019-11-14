@@ -30,7 +30,7 @@ export const MonthlyWebsiteVisitor = ({ value, onChange }) => {
         },
         start: value || 0,
         tooltips: formatter,
-        onSlide: (args) => {
+        onChange: (args) => {
             const sliderValue = get(args, '[0]')
             onChange(numeral(sliderValue).value())
         }

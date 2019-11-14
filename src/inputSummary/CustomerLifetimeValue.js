@@ -32,7 +32,7 @@ export const CustomerLifetimeValue = ({ value, onChange }) => {
             density: 2,
             format: formatter
         },
-        onSlide: (args) => {
+        onChange: (args) => {
             const sliderValue = get(args, '[0]')
             onChange(numeral(sliderValue).value())
         }
